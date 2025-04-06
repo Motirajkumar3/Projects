@@ -1,0 +1,102 @@
+[
+  {
+    "question": "How do I clone a repository from GitHub?",
+    "answer": "Use the command `git clone <repository_url>`."
+  },
+  {
+    "question": "What is the difference between Git and GitHub?",
+    "answer": "Git is a version control system, while GitHub is a hosting service for Git repositories."
+  },
+  {
+    "question": "How do I create a new branch in Git?",
+    "answer": "Use `git checkout -b <branch-name>` to create and switch to a new branch."
+  },
+  {
+    "question": "What is the purpose of a pull request?",
+    "answer": "A pull request lets you propose changes to code in a repository and request a review before merging."
+  },
+  {
+    "question": "What are unit tests?",
+    "answer": "Unit tests are automated tests that verify the behavior of a small part of your code, usually functions."
+  },
+  {
+    "question": "What is an API?",
+    "answer": "An API (Application Programming Interface) allows different software systems to communicate with each other."
+  },
+  {
+    "question": "What is the difference between frontend and backend development?",
+    "answer": "Frontend is what users interact with; backend handles server-side logic and database operations."
+  },
+  {
+    "question": "How do I push my code to a remote Git repository?",
+    "answer": "Use `git add .`, `git commit -m \"message\"`, and then `git push origin main`."
+  },
+  {
+    "question": "How do I resolve a Git merge conflict?",
+    "answer": "Open the conflicting files, resolve the differences, then use `git add` and `git commit`."
+  },
+  {
+    "question": "What does CI/CD stand for?",
+    "answer": "CI/CD stands for Continuous Integration and Continuous Deployment or Delivery."
+  },
+  {
+    "question": "How can I connect to a remote server using SSH?",
+    "answer": "Use the command `ssh username@server_address` in your terminal."
+  },
+  {
+    "question": "What is a virtual environment in Python?",
+    "answer": "It's an isolated environment where Python packages can be installed without affecting the global installation."
+  },
+  {
+    "question": "What is the purpose of `requirements.txt` in Python?",
+    "answer": "It lists all the dependencies of a project so they can be installed with `pip install -r requirements.txt`."
+  },
+  {
+    "question": "How do I run a Python script?",
+    "answer": "Use the command `python script_name.py`."
+  },
+  {
+    "question": "What is Docker used for?",
+    "answer": "Docker is used to package applications and their dependencies into containers for consistent environments."
+  },
+  {
+    "question": "What is an HTTP status code 404?",
+    "answer": "It means 'Not Found' — the server couldn’t find the requested resource."
+  },
+  {
+    "question": "What is JSON?",
+    "answer": "JSON (JavaScript Object Notation) is a lightweight format for storing and exchanging data."
+  },
+  {
+    "question": "How do I handle exceptions in Python?",
+    "answer": "Use `try`, `except`, and optionally `finally` blocks to catch and handle exceptions."
+  },
+  {
+    "question": "What is a class in object-oriented programming?",
+    "answer": "A class is a blueprint for creating objects with specific attributes and methods."
+  },
+  {
+    "question": "What is a RESTful API?",
+    "answer": "It's an API that follows REST principles, using standard HTTP methods like GET, POST, PUT, and DELETE."
+  },
+  {
+    "question": "How do I install a Python package?",
+    "answer": "Use `pip install package_name`."
+  },
+  {
+    "question": "What is a database?",
+    "answer": "A database is an organized collection of data that can be easily accessed, managed, and updated."
+  },
+  {
+    "question": "What is SQL used for?",
+    "answer": "SQL is used to manage and query data in relational databases."
+  },
+  {
+    "question": "What is version control?",
+    "answer": "Version control is a system that records changes to a file or set of files over time."
+  },
+  {
+    "question": "How do I check my current Git branch?",
+    "answer": "Use the command `git branch` or `git status`."
+  }
+]
