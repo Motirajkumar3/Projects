@@ -1,0 +1,26 @@
+Fresher Chatbot is a fine-tuned Large Language Model (LLM) using LoRA (Low-Rank Adaptation) designed to answer frequently asked questions by freshers in the software development domain (e.g., Google). It leverages the Falcon-1B model from Hugging Face and is trained on a custom question-answer dataset. The project includes two primary scripts: train_lora.py for training and infer.py for chatbot interaction. The training script loads a JSON dataset (google_fresher_qa.json) where each entry contains a question and answer. These are merged into a single prompt format like: “ *Question: … *Answer: …”, enabling the model to learn how to respond to such prompts. 
+The chatbot script takes user input, formats it similarly, and generates a relevant answer using the trained model. The training uses peft and trl.SFTTrainer to apply LoRA on CPU (no GPU required). 
+Important: Before running, make sure to change the dataset path in train_lora.py to your local location of google_fresher_qa.json, and the lora_path in infer.py to the correct path where the LoRA model gets saved (e.g., C:/Users/your-name/Desktop/fresher-chatbot-llm/fresher-chatbot-lora). After training, you can launch the chatbot from the terminal by running infer.py. This project is structured for future extension into a web app using tools like Streamlit or Gradio.
+It is licensed under MIT and acknowledges contributions from Hugging Face's Transformers, PEFT, and TRL libraries.
+
+fresher-chatbot-llm/
+│
+├── fresher-chatbot-lora/                 # <== Generated after training (contains LoRA weights & adapter config)
+│   ├── adapter_config.json
+│   ├── adapter_model.bin
+│   └── (other LoRA-related files)
+│
+├── scripts/                              # All core Python scripts
+│   ├── train_lora.py                     # Script to train/fine-tune the model using LoRA
+│   └── infer.py                          # Script to chat with the trained bot
+│
+├── google_fresher_qa.json               # JSON dataset with question-answer pairs
+│
+├── logs/                                 # Training logs
+│   └── (TensorBoard logs, etc.)
+│
+├── results/                              # Model output checkpoints from training
+│   └── (Saved model epochs, etc.)
+│
+├── README.md                             # Project description and instructions
+└── requirements.txt                      # Python dependencies
