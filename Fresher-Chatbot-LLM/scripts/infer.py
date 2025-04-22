@@ -3,7 +3,7 @@ from peft import PeftModel, PeftConfig
 import torch
 
 # Load the fine-tuned LoRA model directory (use absolute path)
-lora_path = "C:/Users/motir/Desktop/fresher-chatbot-llm/fresher-chatbot-lora" # <--change your file location
+lora_path = "fresher-chatbot-lora"  # <-- change this if your LoRA model path differs
 
 # Load PEFT config to get the base model name
 config = PeftConfig.from_pretrained(lora_path)
@@ -35,15 +35,16 @@ def chat_with_bot(question):
         )
     decoded_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-    # Extract answer portion after prompt
-    if "### Answer:" in decoded_output:
-        answer = decoded_output.split("### Answer:")[-1].strip()
-        # Cut off anything after another "###", if it appears
-        answer = answer.split("###")[0].strip()
-    else:
-        answer = decoded_output.strip()
+    # Extract the part after the prompt
+    generated_text = decoded_output[len(prompt):].strip()
 
-    return answer
+    # Remove extra sections if model repeats prompt or adds more
+    split_tokens = ["###", "Question:", "Answer:"]
+    for token in split_tokens:
+        if token in generated_text:
+            generated_text = generated_text.split(token)[0].strip()
+    
+    return generated_text
 
 # Example usage
 if __name__ == "__main__":

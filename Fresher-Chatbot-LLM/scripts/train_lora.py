@@ -6,7 +6,7 @@ import torch
 
 # Model & dataset setup
 model_name = "tiiuae/falcon-rw-1b"
-dataset_path = "C:/Users/motir/Desktop/fresher-chatbot-llm/scripts/google_fresher_qa.json"
+dataset_path = "scripts/google_fresher_qa.json"
 
 # Load dataset
 dataset = load_dataset("json", data_files=dataset_path)

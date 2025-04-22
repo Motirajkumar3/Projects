@@ -61,7 +61,7 @@
   },
   {
     "question": "What is an HTTP status code 404?",
-    "answer": "It means 'Not Found' — the server couldn’t find the requested resource."
+    "answer": "It means 'Not Found' \u2014 the server couldn\u2019t find the requested resource."
   },
   {
     "question": "What is JSON?",
@@ -98,5 +98,125 @@
   {
     "question": "How do I check my current Git branch?",
     "answer": "Use the command `git branch` or `git status`."
+  },
+  {
+    "question": "How do I enable dark mode in my IDE?",
+    "answer": "Most IDEs like VSCode or IntelliJ offer a theme setting under preferences. Look for 'Color Theme' or 'Appearance'."
+  },
+  {
+    "question": "What is a linter and why should I use one?",
+    "answer": "A linter analyzes your code for potential errors and style issues. It helps maintain clean, readable code."
+  },
+  {
+    "question": "How can I automate tasks in my development workflow?",
+    "answer": "You can use shell scripts, task runners like Gulp or Grunt, or CI/CD pipelines to automate repetitive tasks."
+  },
+  {
+    "question": "What is a shell script?",
+    "answer": "A shell script is a text file containing a sequence of commands for the Unix-based shell to execute."
+  },
+  {
+    "question": "How do I use cron jobs?",
+    "answer": "Cron jobs are used to schedule tasks in Unix systems. Use `crontab -e` to edit the job schedule."
+  },
+  {
+    "question": "What is a container?",
+    "answer": "A container packages software and its dependencies into a single unit that runs reliably in different environments."
+  },
+  {
+    "question": "What is the difference between container and virtual machine?",
+    "answer": "Containers share the host OS kernel while VMs include the entire OS. Containers are more lightweight and faster."
+  },
+  {
+    "question": "What is Kubernetes?",
+    "answer": "Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications."
+  },
+  {
+    "question": "How do I contribute to a public GitHub project?",
+    "answer": "Fork the repo, create a feature branch, commit changes, and open a pull request with a meaningful description."
+  },
+  {
+    "question": "What is a webhook?",
+    "answer": "A webhook is a way for apps to provide other applications with real-time information through HTTP POST requests."
+  },
+  {
+    "question": "How do I use environment variables in Node.js?",
+    "answer": "Use `process.env.VARIABLE_NAME` after loading them with a library like dotenv."
+  },
+  {
+    "question": "What is OAuth?",
+    "answer": "OAuth is an open standard for access delegation, often used for token-based authentication in web apps."
+  },
+  {
+    "question": "How do I set up two-factor authentication on GitHub?",
+    "answer": "Go to GitHub settings \u2192 Security \u2192 Enable 2FA. You\u2019ll need an authentication app or SMS code."
+  },
+  {
+    "question": "What is the DRY principle in coding?",
+    "answer": "DRY stands for 'Don't Repeat Yourself'. It encourages reusing code instead of duplicating it."
+  },
+  {
+    "question": "What are design patterns?",
+    "answer": "Design patterns are reusable solutions to common problems in software design, like Singleton, Factory, and Observer."
+  },
+  {
+    "question": "What is the difference between synchronous and asynchronous code?",
+    "answer": "Synchronous code runs in order; asynchronous code can run in the background, allowing for non-blocking operations."
+  },
+  {
+    "question": "What is an event loop in JavaScript?",
+    "answer": "The event loop is a mechanism that allows JavaScript to perform non-blocking operations by handling asynchronous events."
+  },
+  {
+    "question": "What is a middleware in Express.js?",
+    "answer": "A middleware function has access to the request and response objects and can modify or end the request-response cycle."
+  },
+  {
+    "question": "How do I write unit tests in Python?",
+    "answer": "Use the built-in `unittest` module or third-party tools like `pytest` to create and run tests."
+  },
+  {
+    "question": "What is mocking in unit testing?",
+    "answer": "Mocking replaces real objects in your code with simulated ones to test specific parts of your application."
+  },
+  {
+    "question": "What is the SOLID principle in OOP?",
+    "answer": "SOLID is an acronym for five design principles: Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion."
+  },
+  {
+    "question": "How do I publish an NPM package?",
+    "answer": "Make sure you\u2019re logged in with `npm login`, then run `npm publish` from your project directory."
+  },
+  {
+    "question": "What is semantic versioning?",
+    "answer": "Semantic versioning uses a format MAJOR.MINOR.PATCH to describe version changes in software."
+  },
+  {
+    "question": "What is a monorepo?",
+    "answer": "A monorepo is a single repository that contains multiple projects, often with shared dependencies."
+  },
+  {
+    "question": "What is a hybrid app?",
+    "answer": "A hybrid app is a mobile app built with web technologies and wrapped in a native container for deployment."
+  },
+  {
+    "question": "What is code splitting in web development?",
+    "answer": "Code splitting is a technique that breaks down code into smaller chunks, improving performance by loading only what\u2019s needed."
+  },
+  {
+    "question": "How do I deploy a Node.js app?",
+    "answer": "You can deploy using platforms like Heroku, Vercel, or by setting up your own server and using `pm2` or Docker."
+  },
+  {
+    "question": "What is a GraphQL API?",
+    "answer": "GraphQL is a query language for APIs that allows clients to request exactly the data they need."
+  },
+  {
+    "question": "What is a caching layer?",
+    "answer": "A caching layer stores frequently accessed data in memory for fast retrieval and improved performance."
+  },
+  {
+    "question": "How do I improve website performance?",
+    "answer": "Minify CSS/JS, use lazy loading, compress images, leverage browser caching, and use a CDN."
   }
 ]
