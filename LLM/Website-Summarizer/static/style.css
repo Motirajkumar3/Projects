@@ -1,0 +1,70 @@
+body {
+    background-color: #1e1e2f;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #2a2a40;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #00d8ff;
+}
+
+mkdir website_summarizer && cd website_summarizer
+
+# Create folders
+mkdir templates static
+
+# Create files with content
+
+# app.py
+cat <<EOF > app.py
+from flask import Flask, request, render_template
+from bs4 import BeautifulSoup
+import requests
+import openai
+
+app = Flask(__name__)
+openai.api_key = "YOUR_API_KEY"
+
+def extract_text_from_url(url):
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        for script in soup(["script", "style"]):
+            script.decompose()
+        return soup.get_text(separator=" ", strip=True)
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+def summarize_text(text):
+    prompt = f"Summarize this webpage:\n{text[:3000]}"
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=400
+    )
+    return response.choices[0].message.content.strip()
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    summary = None
+    if request.method == 'POST':
+        url = request.form['url']
+        text = extract_text_from_url(url)
+        summary = summarize_text(text)
+    return render_template("index.html", summary=summary)
+
+if __name__ == '__main__':
+    app.run(debug=True)
