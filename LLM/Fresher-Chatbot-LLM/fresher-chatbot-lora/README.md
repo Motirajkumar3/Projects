@@ -1,202 +1,86 @@
----
-base_model: tiiuae/falcon-rw-1b
-library_name: peft
----
+Fresher Chatbot LLM (LoRA Fine-tuned)
+This project is a Lightweight Fine-tuned Language Model using LoRA (Low-Rank Adaptation) to assist freshers in the software development domain by answering frequently asked workplace-related questions. It is intended to provide quick, helpful responses to boost onboarding and productivity.
 
-# Model Card for Model ID
+🧠 Model Overview
+Developed by: Moti Rajkumar
 
-<!-- Provide a quick summary of what the model is/does. -->
+Model Type: Chatbot fine-tuned with LoRA (Parameter-Efficient Fine-Tuning)
 
+Language: English (NLP)
 
+Base Model: Deepseek LLM
 
-## Model Details
+License: Apache 2.0 (or as per base model's license)
 
-### Model Description
+Frameworks Used: Hugging Face Transformers, PEFT (v0.15.1)
 
-<!-- Provide a longer summary of what this model is. -->
+🔗 Model Sources
+Repository: GitHub
 
+💡 Uses
+Direct Use
+Acts as an assistant to answer common fresher queries related to company processes, software tools, policies, etc.
 
+Useful for onboarding, reducing dependency on senior employees or HR for routine questions.
 
-- **Developed by:** [More Information Needed]
-- **Funded by [optional]:** [More Information Needed]
-- **Shared by [optional]:** [More Information Needed]
-- **Model type:** [More Information Needed]
-- **Language(s) (NLP):** [More Information Needed]
-- **License:** [More Information Needed]
-- **Finetuned from model [optional]:** [More Information Needed]
+Out-of-Scope Use
+Not intended for critical decision-making or legal/medical advice.
 
-### Model Sources [optional]
+May not perform well outside the software development domain or for senior-level queries.
 
-<!-- Provide the basic links for the model. -->
+⚠️ Bias, Risks, and Limitations
+May reflect biases present in the training data.
 
-- **Repository:** [More Information Needed]
-- **Paper [optional]:** [More Information Needed]
-- **Demo [optional]:** [More Information Needed]
+Responses may be inaccurate if asked out-of-domain questions.
 
-## Uses
+Not designed for multilingual or non-English use.
 
-<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
+Recommendation: Always verify critical outputs manually.
 
-### Direct Use
+🚀 Getting Started
+To load and use the model:
 
-<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
+python
+Copy
+Edit
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from peft import PeftModel
 
-[More Information Needed]
+base_model = AutoModelForCausalLM.from_pretrained("deepseek-ai/deepseek-coder")
+tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/deepseek-coder")
 
-### Downstream Use [optional]
+# Load LoRA adapter
+model = PeftModel.from_pretrained(base_model, "path_to_finetuned_lora_model")
 
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
+prompt = "What is the process for getting code review approval?"
+inputs = tokenizer(prompt, return_tensors="pt")
+outputs = model.generate(**inputs, max_new_tokens=100)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+📚 Training Details
+Fine-tuning Method: LoRA
 
-[More Information Needed]
+Training Data: Custom Q&A pairs tailored for fresher software developer scenarios
 
-### Out-of-Scope Use
+Precision Used: fp16
 
-<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
+Compute: NVIDIA T4 (Google Colab)
 
-[More Information Needed]
+📊 Evaluation
+Testing Data: 20% of Q&A dataset held out for validation
 
-## Bias, Risks, and Limitations
+Metrics Used: Manual quality checks, response relevance, and coherence
 
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
+Results Summary: Accurate for domain-specific queries with high-quality, short answers
 
-[More Information Needed]
+🌍 Environmental Impact
+Hardware Used: 1 x NVIDIA T4
 
-### Recommendations
+Training Hours: ~2 hours
 
-<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
+Compute Region: Google Colab US
 
-Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.
+Estimated Emissions: Negligible (small-scale fine-tuning)
 
-## How to Get Started with the Model
-
-Use the code below to get started with the model.
-
-[More Information Needed]
-
-## Training Details
-
-### Training Data
-
-<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
-
-[More Information Needed]
-
-### Training Procedure
-
-<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
-
-#### Preprocessing [optional]
-
-[More Information Needed]
-
-
-#### Training Hyperparameters
-
-- **Training regime:** [More Information Needed] <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
-
-#### Speeds, Sizes, Times [optional]
-
-<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
-
-[More Information Needed]
-
-## Evaluation
-
-<!-- This section describes the evaluation protocols and provides the results. -->
-
-### Testing Data, Factors & Metrics
-
-#### Testing Data
-
-<!-- This should link to a Dataset Card if possible. -->
-
-[More Information Needed]
-
-#### Factors
-
-<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
-
-[More Information Needed]
-
-#### Metrics
-
-<!-- These are the evaluation metrics being used, ideally with a description of why. -->
-
-[More Information Needed]
-
-### Results
-
-[More Information Needed]
-
-#### Summary
-
-
-
-## Model Examination [optional]
-
-<!-- Relevant interpretability work for the model goes here -->
-
-[More Information Needed]
-
-## Environmental Impact
-
-<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
-
-Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
-
-- **Hardware Type:** [More Information Needed]
-- **Hours used:** [More Information Needed]
-- **Cloud Provider:** [More Information Needed]
-- **Compute Region:** [More Information Needed]
-- **Carbon Emitted:** [More Information Needed]
-
-## Technical Specifications [optional]
-
-### Model Architecture and Objective
-
-[More Information Needed]
-
-### Compute Infrastructure
-
-[More Information Needed]
-
-#### Hardware
-
-[More Information Needed]
-
-#### Software
-
-[More Information Needed]
-
-## Citation [optional]
-
-<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
-
-**BibTeX:**
-
-[More Information Needed]
-
-**APA:**
-
-[More Information Needed]
-
-## Glossary [optional]
-
-<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
-
-[More Information Needed]
-
-## More Information [optional]
-
-[More Information Needed]
-
-## Model Card Authors [optional]
-
-[More Information Needed]
-
-## Model Card Contact
-
-[More Information Needed]
-### Framework versions
-
-- PEFT 0.15.1
+📞 Contact
+For queries or suggestions:
+📧 motirajkumar3@gmail.com
