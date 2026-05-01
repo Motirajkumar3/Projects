@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* V-tailers — quiet luxury design system. All colors HSL. */
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 36 33% 97%;        /* off-white / warm ivory */
+    --foreground: 0 0% 10%;          /* near black */
+
+    --card: 36 30% 99%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 36 30% 99%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Primary = charcoal (used for text/buttons) */
+    --primary: 0 0% 12%;
+    --primary-foreground: 36 33% 97%;
+
+    /* Secondary = soft beige */
+    --secondary: 34 25% 92%;
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 34 20% 94%;
+    --muted-foreground: 0 0% 35%;
+
+    /* Accent = maroon (use sparingly) */
+    --accent: 350 55% 28%;
+    --accent-foreground: 36 33% 97%;
+
+    /* Gold — extremely subtle */
+    --gold: 38 45% 55%;
+
+    /* Brand maroon variants */
+    --maroon: 350 55% 28%;
+    --maroon-soft: 350 35% 40%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 36 33% 97%;
+
+    --border: 34 18% 88%;
+    --input: 34 18% 88%;
+    --ring: 350 55% 28%;
+
+    --radius: 0.375rem;
+
+    /* Gradients & shadows */
+    --gradient-hero: linear-gradient(180deg, hsl(36 33% 97% / 0) 60%, hsl(36 33% 97% / 0.85) 100%);
+    --gradient-soft: linear-gradient(135deg, hsl(34 25% 94%), hsl(36 33% 97%));
+
+    --shadow-soft: 0 10px 30px -15px hsl(0 0% 10% / 0.08);
+    --shadow-elegant: 0 20px 50px -20px hsl(350 55% 28% / 0.15);
+
+    --transition-smooth: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4, h5, .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .hover-zoom { @apply overflow-hidden; }
+  .hover-zoom img { @apply transition-transform duration-700 ease-out; }
+  .hover-zoom:hover img { transform: scale(1.06); }
+
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .tracking-luxury { letter-spacing: 0.25em; }
+}
